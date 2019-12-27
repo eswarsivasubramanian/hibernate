@@ -1,16 +1,16 @@
 package com.iprimed.dao;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.iprimed.bean.Customer;
 
-public class AddCustomer {
+public class DeleteCustomer {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//inbuild hibernate xml file using factory
 		SessionFactory factory = new Configuration()
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Customer.class)
@@ -19,31 +19,32 @@ public class AddCustomer {
 		//create session
 		Session session = factory.getCurrentSession();
 		
+		System.out.println("transaction started");
 		try
 		{
-			//create object to map to database
-			Customer cust = new Customer("Eswar","eswar@gmail.com",9840142569L);
-			Customer cust1=new Customer("Siva","siva123@gmail.com",9087427888L);
-			Customer cust2=new Customer("Mani","mani007@gmail.com",9840247926L);
-			
-			//start transaction
+			int custId=2;
+			//begin transaction
 			session.beginTransaction();
 			
-			//save object into database
-			session.save(cust);
-			session.save(cust1);
-			session.save(cust2);
+			//get customer using customer id
+			Customer customer = session.get(Customer.class,custId);
+			System.out.println("got customer details");
 			
-			//commit changes in database
+			//delete customer
+			session.delete(customer);
+			System.out.println("customer deleted successfully");
+			
+			//commit changes in db
 			session.getTransaction().commit();
+			System.out.println("committed changes in db");
+			
 		}
-		
 		finally
 		{
 			session.close();
 			factory.close();
 		}
-		
+
 	}
 
 }
