@@ -34,9 +34,24 @@ public class GetCustomer {
 			//get customer details
 			//Customer customer=session.get(Customer.class,custId);
 			//get all customer details
-			List<Customer> customers = session.createQuery("from Customer").getResultList();
+//			List<Customer> customers = session.createQuery("from Customer").getResultList();
 			
-//			int res = session.createQuery("update Customer set email='test@yahoo.co.in'").executeUpdate();
+			
+			
+			//List<Customer> customers = session.createQuery("from Customer where email='eswar@gmail.com'").getResultList();
+			
+			//ending like i
+//			List<Customer> customers1 = session.createQuery("from Customer c where c.name LIKE '%i'").getResultList();
+
+			
+			//ending like a or i
+//			List<Customer> customers2 = session.createQuery("from Customer c where c.name LIKE '%i' OR c.name LIKE '%a'").getResultList();//Customer is bean class name
+			
+			//List<Customer> customers2 = session.createQuery("from Customer where email='eswar@gmail.com'").getResultList();
+			
+			List<Customer> customers2 = session.createQuery("from Customer c where c.name LIKE '%e%'").getResultList();
+			
+			//			int res = session.createQuery("update Customer set email='test@yahoo.co.in'").executeUpdate();
 //			System.out.println("updated customer email address");
 			
 			//print customer details
@@ -48,13 +63,26 @@ public class GetCustomer {
 			}
 			*/
 			
-			Iterator<Customer> itr=customers.iterator();
+//			Iterator<Customer> itr=customers.iterator();
+//			while(itr.hasNext())
+//			{
+//				Customer c = itr.next();
+//				System.out.println(c.getName()+" : "+c.getId());
+//			}
+			
+//			Iterator<Customer> itr=customers1.iterator();
+//			while(itr.hasNext())
+//			{
+//				Customer c = itr.next();
+//				System.out.println(c.getName()+" : "+c.getId());
+//			}
+			
+			Iterator<Customer> itr=customers2.iterator();
 			while(itr.hasNext())
 			{
 				Customer c = itr.next();
-				System.out.println(c.getName()+" : "+c.getEmail());
+				System.out.println(c.getName()+" : "+c.getId()+" : "+c.getEmail());
 			}
-			
 			
 			
 		}

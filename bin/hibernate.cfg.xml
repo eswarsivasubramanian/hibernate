@@ -38,6 +38,13 @@
 
         <!-- Names the annotated entity class -->
         <mapping class="com.iprimed.bean.Customer"/>
+        <mapping class="com.iprimed.bean.Student"/>
+        <mapping class="com.iprimed.bean.Employee"/>
+        <mapping class="com.iprimed.bean.EmployeeDetails"/>
+        <mapping class="com.iprimed.bean.Parent"/>
+        <mapping class="com.iprimed.bean.Child"/>
+         <mapping class="com.iprimed.bean.GrandChild"/>
+        
         
 
     </session-factory>

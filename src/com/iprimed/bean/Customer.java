@@ -56,6 +56,7 @@ public class Customer { //customer is table name
 		this.mobile = mobile;
 	}
 	
+	
 	//constructors
 	//no arg constructor
 	public Customer() {}
@@ -68,5 +69,4 @@ public class Customer { //customer is table name
 		this.email=email;
 		this.mobile=mobile;
 	}
-
 }
