@@ -20,7 +20,7 @@ public class Emp {
 	private double salary;
 	
 	
-	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.EAGER)
+	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.LAZY) //uni directional
 	@JoinColumn(name="emp_dept")
 	private Department department;
 	

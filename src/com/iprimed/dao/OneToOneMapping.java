@@ -26,18 +26,28 @@ public class OneToOneMapping {
 		try
 		{
 			//create object
-			Department dept = new Department(1001,"IT");
-			Emp e = new Emp(1,"Eswar",25000,dept);
+		//Department dept = new Department(1001,"IT");
+		//Emp e = new Emp(1,"Eswar",25000,dept);
 			
 			//begin transaction
 			session.beginTransaction();
 			
+			Emp emp = session.get(Emp.class,1); //1 is employee id
+			System.out.println(emp.getEmpName());
+			System.out.println(emp.getEmpId());
+
+			//System.out.println(emp.getDepartment());
+			
+			Department dept1 = emp.getDepartment();
+			System.out.println(dept1.getDeptName());
+			System.out.println(dept1.getDeptId());
+//			
 			//save objects
-			session.save(dept);
-			session.save(e);
+			//session.save(dept);
+			//session.save(e);
 			
 			//commit changes into db
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			
 		}
 		finally
